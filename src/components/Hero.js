@@ -5,7 +5,7 @@ import SplitText from './SplitText';
 import GradientText from './GradientText';
 import SineWaveform from './SineWaveform';
 
-const Hero = ({ children, toggleChat, isChatOpen }) => {
+const Hero = ({ children }) => {
   const handleSmoothScroll = (e, targetId) => {
     e.preventDefault();
     const target = document.querySelector(targetId);
@@ -84,9 +84,15 @@ A voice for your business, even when you’re off the clock.          </p>
           </div>
           <div className="cta-buttons" style={{ position: 'relative' }}>
             <button 
-              className={`mic-button gradient-bg-btn ${!isChatOpen ? 'mic-button-animated' : ''}`} 
+              className="mic-button gradient-bg-btn mic-button-animated" 
               aria-label="Activate voice assistant" 
-              onClick={toggleChat}
+              onClick={() => {
+                // Open the Always Open widget
+                if (AlwaysOpenWidget) {
+                  console.log('Opening Always Open widget');
+                  AlwaysOpenWidget.open();
+                }
+              }}
             >
               <div className="mic-button-glow"></div>
               <svg className="mic-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

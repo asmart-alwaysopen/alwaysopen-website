@@ -13,31 +13,30 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <!-- Always Open Widget -->
 <!-- Always Open Widget -->
 <script>
   (function() {
     // Widget configuration - only channel ID required
     var alwaysOpenConfig = {
-      channelId: '68af3d4094cc0abf0b98d236',
+      channelId: '68cdbb09aec4f00bcd6dea40',
       
       // Optional: customize API base URL (defaults to current domain)
-      apiBaseUrl: 'https://localhost:3004/api',
-      apiUrl: 'https://localhost:3005/chat/agent-manager/query',
-      voiceApiUrl: 'https://localhost:3006/call',
-      chatSocketUrl: 'wss://localhost:3005/chat/api/query-socket',
-      voiceSocketUrl: 'wss://localhost:3006/call/api/query-socket',
+      apiBaseUrl: 'https://api.bealwaysopen.com/api',
+      apiUrl: 'https://api.bealwaysopen.com/chat/agent-manager/query',
+      voiceApiUrl: 'https://api.bealwaysopen.com/call',
+      chatSocketUrl: 'wss://api.bealwaysopen.com/chat/api/query-socket',
+      voiceSocketUrl: 'wss://api.bealwaysopen.com/call/api/query-socket',
     };
     
     // Load widget CSS
     var style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = 'http://localhost:4200/assets/widget/always-open-widget.css';
+    style.href = 'https://app.bealwaysopen.com/assets/widget/always-open-widget.css';
     document.head.appendChild(style);
     
     // Load widget JavaScript
     var script = document.createElement('script');
-    script.src = 'http://localhost:4200/assets/widget/always-open-widget.js';
+    script.src = 'https://app.bealwaysopen.com/assets/widget/always-open-widget.js';
     script.async = true;
     script.onload = function() {
       if (window.AlwaysOpenWidget) {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
@@ -10,23 +10,17 @@ import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import CTARounded from './components/CTARounded';
 import Footer from './components/Footer';
-import ChatPlugin from './components/ChatPlugin';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfUse from './components/TermsOfUse';
 import DataDeletion from './components/DataDeletion';
 
 function App() {
-  const [isChatOpen, setIsChatOpen] = useState(false);
-
-  const toggleChat = () => {
-    setIsChatOpen(!isChatOpen);
-  };
 
   const HomePage = () => (
     <div className="App">
       <Header />
       <main>
-        <Hero toggleChat={toggleChat} isChatOpen={isChatOpen}>
+        <Hero>
           <div className="bg-blob1" />
           <div className="bg-blob2" />
           <div className="bg-blob3" />
@@ -40,7 +34,6 @@ function App() {
         <CTARounded />
       </main>
       <Footer />
-      <ChatPlugin isOpen={isChatOpen} toggleChat={toggleChat} />
     </div>
   );
 
@@ -49,7 +42,6 @@ function App() {
       <Header />
       <PrivacyPolicy />
       <Footer />
-      <ChatPlugin isOpen={isChatOpen} toggleChat={toggleChat} />
     </div>
   );
 
@@ -58,7 +50,6 @@ function App() {
       <Header />
       <TermsOfUse />
       <Footer />
-      <ChatPlugin isOpen={isChatOpen} toggleChat={toggleChat} />
     </div>
   );
 
@@ -67,7 +58,6 @@ function App() {
       <Header />
       <DataDeletion />
       <Footer />
-      <ChatPlugin isOpen={isChatOpen} toggleChat={toggleChat} />
     </div>
   );
 
