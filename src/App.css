@@ -2652,7 +2652,7 @@ footer {
   margin: 0 auto;
 }
 
-.hero-content {
+.industry-hero .hero-content {
   text-align: left;
 }
 
@@ -3746,7 +3746,7 @@ footer {
     text-align: center;
   }
 
-  .hero-content {
+  .industry-hero .hero-content {
     text-align: center;
   }
 
