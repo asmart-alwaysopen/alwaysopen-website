@@ -124,10 +124,48 @@ const HospitalityPage = () => {
   ];
 
   const stats = [
-    { number: "85%", label: "Reduction in front desk call volume" },
-    { number: "24/7", label: "Guest service availability" },
-    { number: "40%", label: "Increase in booking conversions" },
-    { number: "60%", label: "Faster response times" }
+    { 
+      number: "85%", 
+      label: "Reduction in front desk call volume",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 3v5h5"/>
+          <path d="M3 8a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 4"/>
+          <path d="M21 21v-5h-5"/>
+          <path d="M21 16a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 20"/>
+        </svg>
+      )
+    },
+    { 
+      number: "24/7", 
+      label: "Guest service availability",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12,6 12,12 16,14"/>
+        </svg>
+      )
+    },
+    { 
+      number: "40%", 
+      label: "Increase in booking conversions",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="12" y1="20" x2="12" y2="10"/>
+          <line x1="18" y1="20" x2="18" y2="4"/>
+          <line x1="6" y1="20" x2="6" y2="16"/>
+        </svg>
+      )
+    },
+    { 
+      number: "60%", 
+      label: "Faster response times",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/>
+        </svg>
+      )
+    }
   ];
 
   return (
@@ -197,6 +235,7 @@ const HospitalityPage = () => {
             <div className="stats-grid">
               {stats.map((stat, index) => (
                 <div key={index} className="stat-card">
+                  <div className="stat-icon">{stat.icon}</div>
                   <div className="stat-number">{stat.number}</div>
                   <div className="stat-label">{stat.label}</div>
                 </div>
