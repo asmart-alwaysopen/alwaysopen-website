@@ -3567,6 +3567,148 @@ footer {
   margin: 0;
 }
 
+/* Retail Page Styles */
+.retail-page {
+  background: #fff;
+}
+
+.retail-badge {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.15)) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #047857 !important;
+}
+
+/* Testimonial Highlight Section */
+.testimonial-highlight-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #8B5CF6 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-highlight-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.testimonial-highlight {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-quote-mark {
+  font-size: 8rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.2);
+  font-family: Georgia, serif;
+  margin-bottom: -3rem;
+}
+
+.testimonial-highlight blockquote {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: white;
+  line-height: 1.5;
+  margin: 0 0 2rem 0;
+  font-style: normal;
+}
+
+.testimonial-author {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.author-name {
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.author-role {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9375rem;
+}
+
+/* Integrations Section */
+.integrations-section {
+  padding: 80px 0;
+  background: var(--background-light);
+}
+
+.integrations-content {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.integrations-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.integrations-content > p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+}
+
+.integration-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.integration-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.integration-item:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+.integration-item svg {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.integration-item:hover svg {
+  opacity: 1;
+}
+
+.integration-item span {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
 /* Mid-page CTA */
 .mid-cta-section {
   padding: 100px 0;
@@ -4193,6 +4335,60 @@ footer {
     max-width: 300px;
     padding: 0.875rem 2rem;
   }
+
+  /* Mobile Testimonial Highlight */
+  .testimonial-highlight-section {
+    padding: 60px 0;
+  }
+
+  .testimonial-quote-mark {
+    font-size: 5rem;
+    margin-bottom: -2rem;
+  }
+
+  .testimonial-highlight blockquote {
+    font-size: 1.25rem;
+    padding: 0 1rem;
+  }
+
+  .author-name {
+    font-size: 1rem;
+  }
+
+  .author-role {
+    font-size: 0.875rem;
+  }
+
+  /* Mobile Integrations Section */
+  .integrations-section {
+    padding: 60px 0;
+  }
+
+  .integrations-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .integrations-content > p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .integration-logos {
+    gap: 2rem;
+  }
+
+  .integration-item {
+    min-width: 80px;
+  }
+
+  .integration-item svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .integration-item span {
+    font-size: 0.75rem;
+  }
 }
 
 .brand-logo {
@@ -4624,5 +4820,73 @@ footer {
   .method-card {
     padding: 1.5rem;
   }
+}
+
+/* =========================================
+   Healthcare Page Styles
+   ========================================= */
+
+.healthcare-page {
+  --healthcare-accent: #0891b2;
+  --healthcare-accent-light: #06b6d4;
+}
+
+/* Healthcare badge - subtle teal accent */
+.healthcare-badge {
+  background: rgba(8, 145, 178, 0.1) !important;
+  color: var(--healthcare-accent) !important;
+  border: 1px solid rgba(8, 145, 178, 0.25) !important;
+}
+
+/* Keep standard blob colors from primary brand */
+
+/* Cardinal numbers - teal accent */
+.healthcare-number {
+  color: var(--healthcare-accent) !important;
+}
+
+/* How it works - teal accent on connectors */
+.how-it-works-healthcare .step-connector svg path {
+  stroke: var(--healthcare-accent) !important;
+}
+
+/* Benefits - subtle accent only on icons and numbers */
+.healthcare-icon {
+  color: var(--healthcare-accent) !important;
+}
+
+.healthcare-icon-bg {
+  background: rgba(8, 145, 178, 0.08) !important;
+}
+
+/* Bottom accent bar on benefit cards */
+.healthcare-accent {
+  background: linear-gradient(90deg, var(--healthcare-accent), var(--healthcare-accent-light)) !important;
+}
+
+/* Compliance section - very subtle teal tint */
+.healthcare-compliance {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.03) 0%, rgba(8, 145, 178, 0.06) 100%) !important;
+}
+
+.healthcare-compliance .guarantee-item svg {
+  color: var(--healthcare-accent) !important;
+}
+
+/* Use case icons - teal accent */
+.healthcare-use-icon {
+  background: rgba(8, 145, 178, 0.08) !important;
+  color: var(--healthcare-accent) !important;
+}
+
+/* Tags - subtle teal */
+.healthcare-tag {
+  background: rgba(8, 145, 178, 0.08) !important;
+  color: var(--healthcare-accent) !important;
+}
+
+/* Arrow circle on buttons - teal accent */
+.healthcare-page .link-button .arrow-circle {
+  background: linear-gradient(135deg, var(--healthcare-accent), var(--healthcare-accent-light)) !important;
 }
 

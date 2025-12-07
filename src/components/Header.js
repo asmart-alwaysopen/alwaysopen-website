@@ -50,7 +50,6 @@ const Header = () => {
               <Link to="/industries/hospitality" className="dropdown-item">Hospitality</Link>
               <Link to="/industries/retail" className="dropdown-item">Retail</Link>
               <Link to="/industries/healthcare" className="dropdown-item">Healthcare</Link>
-              <Link to="/industries/professional-services" className="dropdown-item">Professional Services</Link>
             </div>
           </div>
           <a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact')}>Contact</a>

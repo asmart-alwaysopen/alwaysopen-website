@@ -14,6 +14,8 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfUse from './components/TermsOfUse';
 import DataDeletion from './components/DataDeletion';
 import HospitalityPage from './components/HospitalityPage';
+import RetailPage from './components/RetailPage';
+import HealthcarePage from './components/HealthcarePage';
 
 function App() {
 
@@ -70,6 +72,22 @@ function App() {
     </div>
   );
 
+  const RetailIndustryPage = () => (
+    <div className="App">
+      <Header />
+      <RetailPage />
+      <Footer />
+    </div>
+  );
+
+  const HealthcareIndustryPage = () => (
+    <div className="App">
+      <Header />
+      <HealthcarePage />
+      <Footer />
+    </div>
+  );
+
   return (
     <Router>
       <Routes>
@@ -78,6 +96,8 @@ function App() {
         <Route path="/terms-of-use" element={<TermsPage />} />
         <Route path="/data-deletion" element={<DataDeletionPage />} />
         <Route path="/industries/hospitality" element={<HospitalityIndustryPage />} />
+        <Route path="/industries/retail" element={<RetailIndustryPage />} />
+        <Route path="/industries/healthcare" element={<HealthcareIndustryPage />} />
       </Routes>
     </Router>
   );
