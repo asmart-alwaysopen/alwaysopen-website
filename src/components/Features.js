@@ -24,7 +24,7 @@ const Features = () => {
     {
       title: "Speaks Human",
       description: "Natural conversations that build trust and engagement.",
-      video: "videos/assistant.mp4",
+      video: "videos/Assistant.mp4",
       alt: "Speaks Human"
     },
     {
