@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfUse from './components/TermsOfUse';
 import DataDeletion from './components/DataDeletion';
+import HospitalityPage from './components/HospitalityPage';
 
 function App() {
 
@@ -61,6 +62,14 @@ function App() {
     </div>
   );
 
+  const HospitalityIndustryPage = () => (
+    <div className="App">
+      <Header />
+      <HospitalityPage />
+      <Footer />
+    </div>
+  );
+
   return (
     <Router>
       <Routes>
@@ -68,6 +77,7 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPage />} />
         <Route path="/terms-of-use" element={<TermsPage />} />
         <Route path="/data-deletion" element={<DataDeletionPage />} />
+        <Route path="/industries/hospitality" element={<HospitalityIndustryPage />} />
       </Routes>
     </Router>
   );

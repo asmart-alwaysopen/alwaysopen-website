@@ -1,6 +1,8 @@
 :root {
     --primary-color: #6366F1;
     --primary-hover: #4F46E5;
+    --accent-color: #FF6B35;
+    --accent-hover: #F59E42;
     --text-primary: #1F2937;
     --text-secondary: #4B5563;
     --background-light: #F9FAFB;
@@ -188,6 +190,82 @@ nav.container{
 
 .nav-links a:hover {
     color: var(--primary-color);
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    color: var(--primary-color);
+}
+
+.dropdown-arrow {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.open {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 0.75rem 0;
+    min-width: 200px;
+    z-index: 1000;
+    margin-top: 0.5rem;
+    animation: dropdownFadeIn 0.2s ease-out;
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.dropdown-item:hover {
+    background: rgba(99, 102, 241, 0.08);
+    color: var(--primary-color);
+    border-left-color: var(--primary-color);
 }
 
 .auth-buttons {
@@ -1783,7 +1861,9 @@ footer .container {
 }
 
 .hero-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   /* background: linear-gradient(90deg, #f3f4f6 0%, #e0e7ff 100%); */
   background: none;
   /* color: #4f46e5; */
@@ -2495,6 +2575,665 @@ footer {
   
   .brand-name {
     font-size: 0.7rem;
+  }
+}
+
+/* Industry Pages Styles */
+.hospitality-page {
+  background: #fff;
+}
+
+.industry-hero {
+  padding: 160px 0 80px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: -120px;
+  padding-top: 200px;
+}
+
+.industry-hero .hero-content h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.hero-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  text-align: left;
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-hospitality-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}
+
+.stats-section {
+  padding: 60px 0;
+  background: var(--background-light);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 3px solid var(--primary-color);
+}
+
+.stat-card:nth-child(2n) {
+  border-top-color: var(--accent-color);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary-color), #8B5CF6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.challenges-section,
+.benefits-section,
+.use-cases-section {
+  padding: 80px 0;
+}
+
+.benefits-section h2,
+.challenges-section h2,
+.use-cases-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.challenges-section {
+  background: var(--background-light);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.challenges-grid,
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.challenge-card,
+.benefit-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.challenge-card:hover,
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.challenge-icon,
+.benefit-icon {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.challenge-icon svg,
+.benefit-icon svg {
+  width: 48px;
+  height: 48px;
+  color: var(--primary-color);
+  stroke-width: 1.5;
+}
+
+.challenge-card h3,
+.benefit-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.challenge-card p,
+.benefit-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.use-cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.use-case-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.use-case-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.use-case-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.use-case-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.feature-list li svg {
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+/* Timeline Layout for Challenges */
+.challenges-timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.challenges-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--primary-color);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.challenge-timeline-item {
+  position: relative;
+  margin-bottom: 4rem;
+  width: 50%;
+}
+
+.challenge-timeline-item.left {
+  left: 0;
+  padding-right: 3rem;
+}
+
+.challenge-timeline-item.right {
+  left: 50%;
+  padding-left: 3rem;
+}
+
+.challenge-timeline-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.challenge-timeline-item.left .challenge-timeline-content::after {
+  content: '';
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-left-color: white;
+}
+
+.challenge-timeline-item.right .challenge-timeline-content::after {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-right-color: white;
+}
+
+.challenge-timeline-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.challenge-timeline-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+}
+
+.challenge-timeline-text h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.challenge-timeline-text p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.challenge-timeline-connector {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  border: 4px solid white;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.challenge-timeline-item:nth-child(2n) .challenge-timeline-connector {
+  background: var(--accent-color);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.challenge-timeline-item.left .challenge-timeline-connector {
+  right: -10px;
+}
+
+.challenge-timeline-item.right .challenge-timeline-connector {
+  left: -10px;
+}
+
+/* Masonry Layout for Benefits */
+.benefits-masonry {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.benefit-masonry-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  border-left: 4px solid transparent;
+}
+
+.benefit-masonry-card:hover {
+  border-left-color: var(--accent-color);
+}
+
+.benefit-masonry-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-card-1 {
+  /* First card - normal height */
+}
+
+.benefit-card-2 {
+  /* Second card - normal height */
+}
+
+.benefit-card-3 {
+  /* Third card - normal height */
+}
+
+.benefit-card-4 {
+  /* Fourth card - normal height */
+}
+
+.benefit-masonry-icon {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.benefit-masonry-icon svg {
+  width: 40px;
+  height: 40px;
+  color: var(--primary-color);
+  stroke-width: 1.5;
+}
+
+.benefit-masonry-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.benefit-masonry-content p {
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.benefit-masonry-decoration {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 107, 53, 0.08);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.benefit-masonry-card:nth-child(2n) .benefit-masonry-decoration {
+  background: rgba(99, 102, 241, 0.08);
+}
+
+/* Mid-page CTA */
+.mid-cta-section {
+  padding: 80px 0;
+  background: var(--primary-color);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mid-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+}
+
+.mid-cta-section::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.mid-cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mid-cta-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.mid-cta-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+}
+
+.mid-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.mid-cta-buttons .primary-btn {
+  background: var(--accent-color);
+  color: white;
+  border: 2px solid var(--accent-color);
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+}
+
+.mid-cta-buttons .primary-btn:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(255, 107, 53, 0.4);
+}
+
+.mid-cta-buttons .secondary-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.mid-cta-buttons .secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+/* Mobile Responsiveness for Industry Pages */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .use-cases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .benefits-masonry {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .industry-hero .hero-content h1 {
+    font-size: 2.75rem;
+  }
+  
+  .stats-grid,
+  .use-cases-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .stat-card,
+  .use-case-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .challenges-section,
+  .benefits-section,
+  .use-cases-section {
+    padding: 60px 0;
+  }
+
+  /* Mobile Timeline */
+  .challenges-timeline::before {
+    left: 30px;
+  }
+
+  .challenge-timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 80px !important;
+    padding-right: 0 !important;
+  }
+
+  .challenge-timeline-item .challenge-timeline-connector {
+    left: 20px !important;
+  }
+
+  .challenge-timeline-item.left .challenge-timeline-content::after,
+  .challenge-timeline-item.right .challenge-timeline-content::after {
+    display: none;
+  }
+
+  .challenge-timeline-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .challenge-timeline-icon {
+    width: 50px;
+    height: 50px;
+    align-self: center;
+  }
+
+  /* Mobile Masonry */
+  .benefits-masonry {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-masonry-card {
+    padding: 1.5rem;
+  }
+
+  /* Mobile Mid-CTA */
+  .mid-cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .mid-cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mid-cta-buttons .primary-btn,
+  .mid-cta-buttons .secondary-btn {
+    width: 100%;
+    max-width: 280px;
   }
 }
 
