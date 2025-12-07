@@ -1,8 +1,0 @@
-# Static assets should be served directly
-/videos/*  /videos/:splat  200
-/images/*  /images/:splat  200
-/animations/*  /animations/:splat  200
-/static/*  /static/:splat  200
-
-# All other routes should go to React Router
-/*  /index.html  200
