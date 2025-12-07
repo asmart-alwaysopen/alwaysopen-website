@@ -232,6 +232,10 @@ const HospitalityPage = () => {
       <section className="stats-section">
         <div className="container">
           <RiseUpAnimation stagger={0.1} duration={0.8} y={40}>
+            <div className="stats-header">
+              <h2>The Impact of AI-Powered Guest Service</h2>
+              <p>See how hospitality businesses are transforming their operations with Always Open</p>
+            </div>
             <div className="stats-grid">
               {stats.map((stat, index) => (
                 <div key={index} className="stat-card">
