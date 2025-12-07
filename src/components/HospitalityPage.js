@@ -228,27 +228,6 @@ const HospitalityPage = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="stats-section">
-        <div className="container">
-          <RiseUpAnimation stagger={0.1} duration={0.8} y={40}>
-            <div className="stats-header">
-              <h2>The Impact of AI-Powered Guest Service</h2>
-              <p>See how hospitality businesses are transforming their operations with Always Open</p>
-            </div>
-            <div className="stats-grid">
-              {stats.map((stat, index) => (
-                <div key={index} className="stat-card">
-                  <div className="stat-icon">{stat.icon}</div>
-                  <div className="stat-number">{stat.number}</div>
-                  <div className="stat-label">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </RiseUpAnimation>
-        </div>
-      </section>
-
       {/* Challenges Section */}
       <section className="challenges-section" id="challenges">
         <div className="container">
@@ -305,6 +284,27 @@ const HospitalityPage = () => {
               </RiseUpAnimation>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="stats-section">
+        <div className="container">
+          <RiseUpAnimation stagger={0.1} duration={0.8} y={40}>
+            <div className="stats-header">
+              <h2>The Impact of AI-Powered Guest Service</h2>
+              <p>See how hospitality businesses are transforming their operations with Always Open</p>
+            </div>
+            <div className="stats-grid">
+              {stats.map((stat, index) => (
+                <div key={index} className="stat-card">
+                  <div className="stat-icon">{stat.icon}</div>
+                  <div className="stat-number">{stat.number}</div>
+                  <div className="stat-label">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </RiseUpAnimation>
         </div>
       </section>
 
