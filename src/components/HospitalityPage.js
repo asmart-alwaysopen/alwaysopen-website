@@ -355,7 +355,7 @@ const HospitalityPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="cta-rounded" id="contact">
+      <section className="cta-rounded container" id="contact">
         <div className="cta-rounded-content">
           <div className="cta-blob-3"></div>
           <div className="cta-blob-4"></div>

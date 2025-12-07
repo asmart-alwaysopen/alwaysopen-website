@@ -198,18 +198,31 @@ nav.container{
     display: inline-block;
 }
 
+.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: transparent;
+    z-index: 999;
+}
+
 .dropdown-toggle {
     background: none;
     border: none;
     color: var(--text-primary);
     font-weight: 500;
     font-size: 1rem;
+    font-family: inherit;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0;
     transition: color 0.3s ease;
+    height: 98%;
 }
 
 .dropdown-toggle:hover {
@@ -226,7 +239,7 @@ nav.container{
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 5px);
     left: 0;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(16px) saturate(180%);
@@ -237,8 +250,38 @@ nav.container{
     padding: 0.75rem 0;
     min-width: 200px;
     z-index: 1000;
-    margin-top: 0.5rem;
-    animation: dropdownFadeIn 0.2s ease-out;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    transition-delay: 0.2s;
+    pointer-events: none;
+}
+
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: transparent;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition-delay: 0s;
+}
+
+.dropdown-menu:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition-delay: 0s;
 }
 
 @keyframes dropdownFadeIn {
@@ -3093,6 +3136,44 @@ footer {
   66% { 
     transform: translate(-15px, 10px) rotate(240deg) scale(0.95);
   }
+}
+
+/* Final CTA Section */
+.final-cta-section {
+  padding: 100px 0;
+  background: var(--background-light);
+}
+
+.final-cta-section .cta-rounded {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.final-cta-section .cta-form {
+  margin-top: 2rem;
+}
+
+.final-cta-section .form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.final-cta-section input,
+.final-cta-section select {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--white);
+}
+
+.final-cta-section .primary-btn {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
 }
 
 

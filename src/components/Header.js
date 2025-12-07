@@ -39,21 +39,19 @@ const Header = () => {
         <div className="nav-links">
           <a href="#features" onClick={(e) => handleSmoothScroll(e, '#features')}>Features</a>
           <a href="#howitworks" onClick={(e) => handleSmoothScroll(e, '#howitworks')}>How it Works</a>
-          <div className="dropdown" onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)}>
+          <div className="dropdown">
             <button className="dropdown-toggle">
               Industries
-              <svg className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="6,9 12,15 18,9"></polyline>
               </svg>
             </button>
-            {isDropdownOpen && (
-              <div className="dropdown-menu">
-                <Link to="/industries/hospitality" className="dropdown-item">Hospitality</Link>
-                <Link to="/industries/retail" className="dropdown-item">Retail</Link>
-                <Link to="/industries/healthcare" className="dropdown-item">Healthcare</Link>
-                <Link to="/industries/professional-services" className="dropdown-item">Professional Services</Link>
-              </div>
-            )}
+            <div className="dropdown-menu">
+              <Link to="/industries/hospitality" className="dropdown-item">Hospitality</Link>
+              <Link to="/industries/retail" className="dropdown-item">Retail</Link>
+              <Link to="/industries/healthcare" className="dropdown-item">Healthcare</Link>
+              <Link to="/industries/professional-services" className="dropdown-item">Professional Services</Link>
+            </div>
           </div>
           <a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact')}>Contact</a>
         </div>
