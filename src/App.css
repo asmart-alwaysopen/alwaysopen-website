@@ -2882,224 +2882,380 @@ footer {
   flex-shrink: 0;
 }
 
-/* Timeline Layout for Challenges */
-.challenges-timeline {
+/* Cardinal Point Layout for Challenges */
+.challenges-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #f0f9ff 100%);
   position: relative;
+  overflow: hidden;
+}
+
+.challenges-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.challenges-cardinal {
+  display: grid;
+  grid-template-columns: 1fr 180px 1fr;
+  grid-template-rows: auto 180px auto;
+  gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem 0;
-}
-
-.challenges-timeline::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--primary-color);
-  transform: translateX(-50%);
-  border-radius: 2px;
-}
-
-.challenge-timeline-item {
+  padding: 3rem 0;
+  align-items: center;
+  justify-items: center;
   position: relative;
-  margin-bottom: 4rem;
-  width: 50%;
+  z-index: 1;
 }
 
-.challenge-timeline-item.left {
-  left: 0;
-  padding-right: 3rem;
-}
-
-.challenge-timeline-item.right {
-  left: 50%;
-  padding-left: 3rem;
-}
-
-.challenge-timeline-content {
-  background: white;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-}
-
-.challenge-timeline-item.left .challenge-timeline-content::after {
-  content: '';
-  position: absolute;
-  right: -15px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border: 15px solid transparent;
-  border-left-color: white;
-}
-
-.challenge-timeline-item.right .challenge-timeline-content::after {
-  content: '';
-  position: absolute;
-  left: -15px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border: 15px solid transparent;
-  border-right-color: white;
-}
-
-.challenge-timeline-icon {
-  flex-shrink: 0;
-  width: 60px;
-  height: 60px;
-  background: var(--primary-color);
+/* Center Circle */
+.cardinal-center {
+  grid-column: 2;
+  grid-row: 2;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #8B5CF6 100%);
   border-radius: 50%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
+  text-align: center;
+  box-shadow: 
+    0 20px 50px rgba(99, 102, 241, 0.4),
+    0 0 0 8px rgba(99, 102, 241, 0.1),
+    0 0 0 16px rgba(99, 102, 241, 0.05);
+  position: relative;
+  animation: centerPulse 3s ease-in-out infinite;
 }
 
-.challenge-timeline-icon svg {
-  width: 28px;
-  height: 28px;
-  stroke: currentColor;
+.cardinal-center::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border: 2px dashed rgba(99, 102, 241, 0.3);
+  border-radius: 50%;
+  animation: spinSlow 20s linear infinite;
 }
 
-.challenge-timeline-text h3 {
+.cardinal-center::after {
+  content: '';
+  position: absolute;
+  inset: -40px;
+  border: 1px dashed rgba(99, 102, 241, 0.15);
+  border-radius: 50%;
+  animation: spinSlow 30s linear infinite reverse;
+}
+
+@keyframes centerPulse {
+  0%, 100% {
+    box-shadow: 
+      0 20px 50px rgba(99, 102, 241, 0.4),
+      0 0 0 8px rgba(99, 102, 241, 0.1),
+      0 0 0 16px rgba(99, 102, 241, 0.05);
+  }
+  50% {
+    box-shadow: 
+      0 25px 60px rgba(99, 102, 241, 0.5),
+      0 0 0 12px rgba(99, 102, 241, 0.15),
+      0 0 0 24px rgba(99, 102, 241, 0.08);
+  }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.cardinal-center-text {
   font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cardinal-center-subtext {
+  font-size: 0.9375rem;
+  opacity: 0.9;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* Cardinal Positions */
+.cardinal-top {
+  grid-column: 2;
+  grid-row: 1;
+  width: 280px;
+}
+
+.cardinal-right {
+  grid-column: 3;
+  grid-row: 2;
+  width: 280px;
+  justify-self: start;
+}
+
+.cardinal-bottom {
+  grid-column: 2;
+  grid-row: 3;
+  width: 280px;
+}
+
+.cardinal-left {
+  grid-column: 1;
+  grid-row: 2;
+  width: 280px;
+  justify-self: end;
+}
+
+/* Card Styles */
+.cardinal-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 280px;
+  height: 180px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardinal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), #8B5CF6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.cardinal-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.cardinal-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Staggered float animation for cards */
+.cardinal-top .cardinal-card {
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+.cardinal-right .cardinal-card {
+  animation: floatCard 4s ease-in-out infinite 1s;
+}
+
+.cardinal-bottom .cardinal-card {
+  animation: floatCard 4s ease-in-out infinite 2s;
+}
+
+.cardinal-left .cardinal-card {
+  animation: floatCard 4s ease-in-out infinite 3s;
+}
+
+@keyframes floatCard {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.cardinal-card:hover {
+  animation: none;
+  transform: translateY(-8px);
+}
+
+.cardinal-card-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.cardinal-card h4 {
+  font-size: 1.0625rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
 }
 
-.challenge-timeline-text p {
+.cardinal-card p {
   color: var(--text-secondary);
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.5;
   margin: 0;
+  flex-grow: 1;
+  overflow: hidden;
 }
 
-.challenge-timeline-connector {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: var(--primary-color);
-  border: 4px solid white;
-  border-radius: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-}
-
-.challenge-timeline-item:nth-child(2n) .challenge-timeline-connector {
-  background: var(--accent-color);
-  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
-}
-
-.challenge-timeline-item.left .challenge-timeline-connector {
-  right: -10px;
-}
-
-.challenge-timeline-item.right .challenge-timeline-connector {
-  left: -10px;
-}
-
-/* Masonry Layout for Benefits */
-.benefits-masonry {
+/* Modern Grid Layout for Benefits */
+.benefits-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 2rem 0;
 }
 
-.benefit-masonry-card {
+.benefit-card {
   background: white;
-  border-radius: 20px;
-  padding: 2.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  border-radius: 24px;
+  padding: 2rem;
   position: relative;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: 280px;
-  border-left: 4px solid transparent;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  transition: all 0.3s ease;
 }
 
-.benefit-masonry-card:hover {
-  border-left-color: var(--accent-color);
-}
-
-.benefit-masonry-card:hover {
+.benefit-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  border-color: rgba(99, 102, 241, 0.2);
 }
 
-.benefit-card-1 {
-  /* First card - normal height */
-}
-
-.benefit-card-2 {
-  /* Second card - normal height */
-}
-
-.benefit-card-3 {
-  /* Third card - normal height */
-}
-
-.benefit-card-4 {
-  /* Fourth card - normal height */
-}
-
-.benefit-masonry-icon {
-  margin-bottom: 1.5rem;
+.benefit-card-header {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
 }
 
-.benefit-masonry-icon svg {
-  width: 40px;
-  height: 40px;
-  color: var(--primary-color);
-  stroke-width: 1.5;
+.benefit-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.benefit-masonry-content h3 {
-  font-size: 1.25rem;
+.benefit-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--primary-color), #8B5CF6);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+}
+
+.benefit-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke: currentColor;
+}
+
+.benefit-icon-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  border-radius: 24px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.benefit-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgba(99, 102, 241, 0.2);
+  font-family: 'Inter', monospace;
+}
+
+.benefit-content h3 {
+  font-size: 1.375rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 1rem;
   line-height: 1.3;
 }
 
-.benefit-masonry-content p {
+.benefit-content p {
   color: var(--text-secondary);
-  line-height: 1.5;
-  font-size: 0.95rem;
-  flex-grow: 1;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1rem;
 }
 
-.benefit-masonry-decoration {
+.benefit-card-accent {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 107, 53, 0.08);
-  border-radius: 50%;
-  z-index: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), #8B5CF6);
+  border-radius: 0 0 24px 24px;
 }
 
-.benefit-masonry-card:nth-child(2n) .benefit-masonry-decoration {
-  background: rgba(99, 102, 241, 0.08);
+.benefit-card:nth-child(2) .benefit-icon {
+  background: linear-gradient(135deg, var(--accent-color), #F59E42);
+  box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
 }
+
+.benefit-card:nth-child(2) .benefit-icon-bg {
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(245, 158, 66, 0.1));
+}
+
+.benefit-card:nth-child(2) .benefit-card-accent {
+  background: linear-gradient(90deg, var(--accent-color), #F59E42);
+}
+
+.benefit-card:nth-child(3) .benefit-icon {
+  background: linear-gradient(135deg, #10B981, #34D399);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+}
+
+.benefit-card:nth-child(3) .benefit-icon-bg {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.1));
+}
+
+.benefit-card:nth-child(3) .benefit-card-accent {
+  background: linear-gradient(90deg, #10B981, #34D399);
+}
+
+.benefit-card:nth-child(4) .benefit-icon {
+  background: linear-gradient(135deg, #F59E0B, #FBBF24);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
+}
+
+.benefit-card:nth-child(4) .benefit-icon-bg {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(251, 191, 36, 0.1));
+}
+
+.benefit-card:nth-child(4) .benefit-card-accent {
+  background: linear-gradient(90deg, #F59E0B, #FBBF24);
+}
+
 
 /* Mid-page CTA */
 .mid-cta-section {
@@ -3278,6 +3434,78 @@ footer {
   }
 }
 
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .challenges-cardinal {
+    grid-template-columns: 1fr 150px 1fr;
+    grid-template-rows: auto 150px auto;
+    gap: 1.5rem;
+    max-width: 850px;
+  }
+
+  .cardinal-center {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cardinal-center::before {
+    inset: -15px;
+  }
+
+  .cardinal-center::after {
+    inset: -30px;
+  }
+
+  .cardinal-center-text {
+    font-size: 1.125rem;
+  }
+
+  .cardinal-top,
+  .cardinal-right,
+  .cardinal-bottom,
+  .cardinal-left {
+    width: 240px;
+  }
+
+  .cardinal-card {
+    width: 240px;
+    height: 170px;
+    padding: 1.25rem;
+  }
+
+  .cardinal-card-number {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cardinal-card h4 {
+    font-size: 1rem;
+  }
+
+  .cardinal-card p {
+    font-size: 0.8125rem;
+  }
+
+  .benefits-grid {
+    gap: 1.5rem;
+    max-width: 900px;
+  }
+
+  .benefit-card {
+    padding: 1.75rem;
+  }
+
+  .benefit-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .benefit-icon-bg {
+    width: 76px;
+    height: 76px;
+  }
+}
+
 @media (max-width: 768px) {
   .industry-hero .hero-content h1 {
     font-size: 2.75rem;
@@ -3314,47 +3542,112 @@ footer {
     padding: 60px 0;
   }
 
-  /* Mobile Timeline */
-  .challenges-timeline::before {
-    left: 30px;
-  }
-
-  .challenge-timeline-item {
-    width: 100%;
-    left: 0 !important;
-    padding-left: 80px !important;
-    padding-right: 0 !important;
-  }
-
-  .challenge-timeline-item .challenge-timeline-connector {
-    left: 20px !important;
-  }
-
-  .challenge-timeline-item.left .challenge-timeline-content::after,
-  .challenge-timeline-item.right .challenge-timeline-content::after {
-    display: none;
-  }
-
-  .challenge-timeline-content {
+  /* Mobile Cardinal Layout */
+  .challenges-cardinal {
+    display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
     gap: 1rem;
+    padding: 2rem 0;
   }
 
-  .challenge-timeline-icon {
-    width: 50px;
-    height: 50px;
-    align-self: center;
+  .cardinal-center {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 1.5rem;
   }
 
-  /* Mobile Masonry */
-  .benefits-masonry {
+  .cardinal-center::before {
+    inset: -12px;
+  }
+
+  .cardinal-center::after {
+    inset: -24px;
+  }
+
+  .cardinal-center-text {
+    font-size: 1rem;
+  }
+
+  .cardinal-center-subtext {
+    font-size: 0.8125rem;
+  }
+
+  .cardinal-top,
+  .cardinal-right,
+  .cardinal-bottom,
+  .cardinal-left {
+    width: 100%;
+  }
+
+  .cardinal-card {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    padding: 1.25rem;
+  }
+
+  .cardinal-top .cardinal-card,
+  .cardinal-right .cardinal-card,
+  .cardinal-bottom .cardinal-card,
+  .cardinal-left .cardinal-card {
+    animation: none;
+  }
+
+  .cardinal-card h4 {
+    font-size: 1.0625rem;
+  }
+
+  .cardinal-card p {
+    font-size: 0.875rem;
+  }
+
+  /* Mobile Benefits Grid */
+  .benefits-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
   }
 
-  .benefit-masonry-card {
+  .benefit-card {
     padding: 1.5rem;
+    border-radius: 20px;
   }
+
+  .benefit-card-header {
+    margin-bottom: 1rem;
+  }
+
+  .benefit-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+  }
+
+  .benefit-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .benefit-icon-bg {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+  }
+
+  .benefit-number {
+    font-size: 1.75rem;
+  }
+
+  .benefit-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .benefit-content p {
+    font-size: 0.95rem;
+  }
+
 
   /* Mobile Mid-CTA */
   .mid-cta-section {

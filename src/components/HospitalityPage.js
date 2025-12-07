@@ -255,21 +255,51 @@ const HospitalityPage = () => {
             </p>
           </RiseUpAnimation>
           
-          <div className="challenges-timeline">
-            {challenges.map((challenge, index) => (
-              <RiseUpAnimation key={index} stagger={0.2 + (index * 0.1)} duration={0.8} y={60}>
-                <div className={`challenge-timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
-                  <div className="challenge-timeline-content">
-                    <div className="challenge-timeline-icon">{challenge.icon}</div>
-                    <div className="challenge-timeline-text">
-                      <h3>{challenge.title}</h3>
-                      <p>{challenge.description}</p>
-                    </div>
-                  </div>
-                  <div className="challenge-timeline-connector"></div>
+          <div className="challenges-cardinal">
+            <div className="cardinal-center">
+              <span className="cardinal-center-text">Always Open</span>
+              <span className="cardinal-center-subtext">Solves</span>
+            </div>
+            
+            <div className="cardinal-top">
+              <RiseUpAnimation stagger={0.2} duration={0.8} y={40}>
+                <div className="cardinal-card">
+                  <div className="cardinal-card-number">01</div>
+                  <h4>{challenges[0].title}</h4>
+                  <p>{challenges[0].description}</p>
                 </div>
               </RiseUpAnimation>
-            ))}
+            </div>
+            
+            <div className="cardinal-right">
+              <RiseUpAnimation stagger={0.3} duration={0.8} y={40}>
+                <div className="cardinal-card">
+                  <div className="cardinal-card-number">02</div>
+                  <h4>{challenges[1].title}</h4>
+                  <p>{challenges[1].description}</p>
+                </div>
+              </RiseUpAnimation>
+            </div>
+            
+            <div className="cardinal-bottom">
+              <RiseUpAnimation stagger={0.4} duration={0.8} y={40}>
+                <div className="cardinal-card">
+                  <div className="cardinal-card-number">03</div>
+                  <h4>{challenges[2].title}</h4>
+                  <p>{challenges[2].description}</p>
+                </div>
+              </RiseUpAnimation>
+            </div>
+            
+            <div className="cardinal-left">
+              <RiseUpAnimation stagger={0.5} duration={0.8} y={40}>
+                <div className="cardinal-card">
+                  <div className="cardinal-card-number">04</div>
+                  <h4>{challenges[3].title}</h4>
+                  <p>{challenges[3].description}</p>
+                </div>
+              </RiseUpAnimation>
+            </div>
           </div>
         </div>
       </section>
@@ -304,16 +334,22 @@ const HospitalityPage = () => {
             </p>
           </RiseUpAnimation>
           
-          <div className="benefits-masonry">
+          <div className="benefits-grid">
             {benefits.map((benefit, index) => (
-              <RiseUpAnimation key={index} stagger={0.2 + (index * 0.15)} duration={0.8} y={60}>
-                <div className={`benefit-masonry-card benefit-card-${index + 1}`}>
-                  <div className="benefit-masonry-icon">{benefit.icon}</div>
-                  <div className="benefit-masonry-content">
+              <RiseUpAnimation key={index} stagger={0.2 + (index * 0.1)} duration={0.8} y={60}>
+                <div className="benefit-card">
+                  <div className="benefit-card-header">
+                    <div className="benefit-icon-wrapper">
+                      <div className="benefit-icon">{benefit.icon}</div>
+                      <div className="benefit-icon-bg"></div>
+                    </div>
+                    <div className="benefit-number">{String(index + 1).padStart(2, '0')}</div>
+                  </div>
+                  <div className="benefit-content">
                     <h3>{benefit.title}</h3>
                     <p>{benefit.description}</p>
                   </div>
-                  <div className="benefit-masonry-decoration"></div>
+                  <div className="benefit-card-accent"></div>
                 </div>
               </RiseUpAnimation>
             ))}
