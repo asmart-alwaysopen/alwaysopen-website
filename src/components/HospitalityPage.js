@@ -308,6 +308,62 @@ const HospitalityPage = () => {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <section className="how-it-works-hospitality">
+        <div className="container">
+          <RiseUpAnimation stagger={0.1} duration={0.8} y={40}>
+            <h2>Get Started in 3 Simple Steps</h2>
+            <p className="section-subtitle">
+              From demo to live in days, not months. We handle the heavy lifting so you can focus on your guests.
+            </p>
+          </RiseUpAnimation>
+          
+          <div className="steps-horizontal">
+            <RiseUpAnimation stagger={0.2} duration={0.8} y={40}>
+              <div className="step-item">
+                <div className="step-number">1</div>
+                <div className="step-content">
+                  <h3>Book a Demo</h3>
+                  <p>See Always Open in action and tell us about your property's unique needs and guest inquiries.</p>
+                </div>
+              </div>
+            </RiseUpAnimation>
+            
+            <div className="step-connector">
+              <svg width="60" height="24" viewBox="0 0 60 24" fill="none">
+                <path d="M0 12H52M52 12L42 4M52 12L42 20" stroke="var(--primary-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            
+            <RiseUpAnimation stagger={0.3} duration={0.8} y={40}>
+              <div className="step-item">
+                <div className="step-number">2</div>
+                <div className="step-content">
+                  <h3>We Customize</h3>
+                  <p>Our team trains the AI on your property details, amenities, policies, and local recommendations.</p>
+                </div>
+              </div>
+            </RiseUpAnimation>
+            
+            <div className="step-connector">
+              <svg width="60" height="24" viewBox="0 0 60 24" fill="none">
+                <path d="M0 12H52M52 12L42 4M52 12L42 20" stroke="var(--primary-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            
+            <RiseUpAnimation stagger={0.4} duration={0.8} y={40}>
+              <div className="step-item">
+                <div className="step-number">3</div>
+                <div className="step-content">
+                  <h3>Go Live</h3>
+                  <p>Start handling guest calls 24/7. Your AI assistant is ready to help within days, not months.</p>
+                </div>
+              </div>
+            </RiseUpAnimation>
+          </div>
+        </div>
+      </section>
+
       {/* Mid-page CTA */}
       <section className="mid-cta-section">
         <div className="container">
@@ -361,6 +417,49 @@ const HospitalityPage = () => {
         </div>
       </section>
 
+      {/* Guarantee Section */}
+      <section className="guarantee-section">
+        <div className="container">
+          <RiseUpAnimation stagger={0.1} duration={0.8} y={40}>
+            <div className="guarantee-content">
+              <h2>Risk-Free Implementation</h2>
+              <div className="guarantee-grid">
+                <div className="guarantee-item">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22,4 12,14.01 9,11.01"/>
+                  </svg>
+                  <span>No Long-Term Contracts</span>
+                </div>
+                <div className="guarantee-item">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12,6 12,12 16,14"/>
+                  </svg>
+                  <span>Setup in Days, Not Months</span>
+                </div>
+                <div className="guarantee-item">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  <span>Seamless Handoff to Staff</span>
+                </div>
+                <div className="guarantee-item">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                  <span>Your Data Stays Secure</span>
+                </div>
+              </div>
+            </div>
+          </RiseUpAnimation>
+        </div>
+      </section>
+
       {/* Use Cases Section */}
       <section className="use-cases-section" id="use-cases">
         <div className="container">
@@ -389,6 +488,47 @@ const HospitalityPage = () => {
                   </ul>
                 </div>
               ))}
+            </div>
+          </RiseUpAnimation>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="faq-section-hospitality">
+        <div className="container">
+          <RiseUpAnimation stagger={0.1} duration={0.8} y={40}>
+            <h2>Frequently Asked Questions</h2>
+            <p className="section-subtitle">
+              Everything you need to know about implementing Always Open for your hospitality business.
+            </p>
+          </RiseUpAnimation>
+          
+          <RiseUpAnimation stagger={0.2} duration={0.8} y={40}>
+            <div className="faq-grid-hospitality">
+              <div className="faq-item-hospitality">
+                <h4>How quickly can we get started?</h4>
+                <p>Most hospitality businesses are live within 3-5 business days. We handle all the setup and customization for your property.</p>
+              </div>
+              <div className="faq-item-hospitality">
+                <h4>Does it integrate with my PMS or booking system?</h4>
+                <p>Yes! Always Open integrates with popular hospitality systems like Opera, Cloudbeds, and reservation platforms to check availability and assist with bookings.</p>
+              </div>
+              <div className="faq-item-hospitality">
+                <h4>What happens when a guest needs a human?</h4>
+                <p>Always Open knows when to seamlessly hand off to your staff. It can transfer calls, schedule callbacks, or create tickets—you're always in control.</p>
+              </div>
+              <div className="faq-item-hospitality">
+                <h4>Can it handle multiple languages?</h4>
+                <p>Absolutely. Always Open supports over 30 languages, making it perfect for international guests and multilingual properties.</p>
+              </div>
+              <div className="faq-item-hospitality">
+                <h4>Is there a long-term contract?</h4>
+                <p>No long-term commitments required. We offer flexible monthly plans because we believe in earning your business every month.</p>
+              </div>
+              <div className="faq-item-hospitality">
+                <h4>How do you train it on my property?</h4>
+                <p>We learn from your website, menus, policies, and any materials you share. You can also easily update information anytime through our simple dashboard.</p>
+              </div>
             </div>
           </RiseUpAnimation>
         </div>
