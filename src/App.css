@@ -2849,6 +2849,74 @@ footer {
   font-size: 1rem;
 }
 
+/* New Use Cases Cards */
+.use-cases-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.use-case-card-new {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.use-case-card-new:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.use-case-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--background-light);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.use-case-card-new h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.use-case-card-new p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.use-case-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.use-case-tag {
+  background: var(--background-light);
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+}
+
+/* Legacy styles - keep for backwards compatibility */
 .use-cases-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3661,6 +3729,17 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .use-cases-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .use-case-card-new:last-child {
+    grid-column: span 2;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+
   .hero-content-wrapper {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -3826,6 +3905,35 @@ footer {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 0 1rem;
+  }
+
+  .use-cases-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .use-case-card-new:last-child {
+    grid-column: auto;
+    max-width: 100%;
+  }
+
+  .use-case-card-new {
+    padding: 1.5rem;
+  }
+
+  .use-case-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1.25rem;
+  }
+
+  .use-case-card-new h3 {
+    font-size: 1.25rem;
+  }
+
+  .use-case-tag {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.875rem;
   }
   
   .stats-header {
