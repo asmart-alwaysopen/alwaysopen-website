@@ -2906,14 +2906,41 @@ footer {
   display: grid;
   grid-template-columns: 1fr 180px 1fr;
   grid-template-rows: auto 180px auto;
-  gap: 2rem;
-  max-width: 1000px;
+  gap: 3rem;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 3rem 0;
   align-items: center;
   justify-items: center;
   position: relative;
   z-index: 1;
+}
+
+/* Connecting lines from center */
+.challenges-cardinal::before,
+.challenges-cardinal::after {
+  content: '';
+  position: absolute;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
+  z-index: 0;
+}
+
+.challenges-cardinal::before {
+  /* Horizontal line */
+  width: calc(100% - 320px);
+  height: 2px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.challenges-cardinal::after {
+  /* Vertical line */
+  height: calc(100% - 240px);
+  width: 2px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Center Circle */
@@ -2935,6 +2962,7 @@ footer {
     0 0 0 8px rgba(99, 102, 241, 0.1),
     0 0 0 16px rgba(99, 102, 241, 0.05);
   position: relative;
+  z-index: 5;
   animation: centerPulse 3s ease-in-out infinite;
 }
 
@@ -2994,36 +3022,44 @@ footer {
 .cardinal-top {
   grid-column: 2;
   grid-row: 1;
-  width: 280px;
+  width: 320px;
+  position: relative;
+  z-index: 2;
 }
 
 .cardinal-right {
   grid-column: 3;
   grid-row: 2;
-  width: 280px;
+  width: 320px;
   justify-self: start;
+  position: relative;
+  z-index: 2;
 }
 
 .cardinal-bottom {
   grid-column: 2;
   grid-row: 3;
-  width: 280px;
+  width: 320px;
+  position: relative;
+  z-index: 2;
 }
 
 .cardinal-left {
   grid-column: 1;
   grid-row: 2;
-  width: 280px;
+  width: 320px;
   justify-self: end;
+  position: relative;
+  z-index: 2;
 }
 
 /* Card Styles */
 .cardinal-card {
   background: white;
   border-radius: 16px;
-  padding: 1.5rem;
-  width: 280px;
-  height: 180px;
+  padding: 1.75rem;
+  width: 320px;
+  height: 210px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(99, 102, 241, 0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -3439,8 +3475,16 @@ footer {
   .challenges-cardinal {
     grid-template-columns: 1fr 150px 1fr;
     grid-template-rows: auto 150px auto;
-    gap: 1.5rem;
-    max-width: 850px;
+    gap: 2rem;
+    max-width: 900px;
+  }
+
+  .challenges-cardinal::before {
+    width: calc(100% - 280px);
+  }
+
+  .challenges-cardinal::after {
+    height: calc(100% - 220px);
   }
 
   .cardinal-center {
@@ -3464,12 +3508,12 @@ footer {
   .cardinal-right,
   .cardinal-bottom,
   .cardinal-left {
-    width: 240px;
+    width: 260px;
   }
 
   .cardinal-card {
-    width: 240px;
-    height: 170px;
+    width: 260px;
+    height: 190px;
     padding: 1.25rem;
   }
 
@@ -3551,6 +3595,11 @@ footer {
     padding: 2rem 0;
   }
 
+  .challenges-cardinal::before,
+  .challenges-cardinal::after {
+    display: none;
+  }
+
   .cardinal-center {
     width: 130px;
     height: 130px;
@@ -3583,8 +3632,8 @@ footer {
   .cardinal-card {
     width: 100%;
     height: auto;
-    min-height: 150px;
-    padding: 1.25rem;
+    min-height: 160px;
+    padding: 1.5rem;
   }
 
   .cardinal-top .cardinal-card,
