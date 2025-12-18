@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import RiseUpAnimation from './RiseUpAnimation';
 
+// API configuration - uses environment variables with fallbacks
+const getFormApiUrl = () => {
+  const baseUrl = process.env.REACT_APP_FORM_API_URL || 'http://localhost:3000';
+  const formId = process.env.REACT_APP_FORM_ID || '69437f809438ebf873b38154';
+  return `${baseUrl}/v1/public/forms/${formId}/submit`;
+};
+
 const CTARounded = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -9,6 +16,8 @@ const CTARounded = () => {
   });
 
   const [showOtherIndustry, setShowOtherIndustry] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
   const industries = [
     'Healthcare',
@@ -34,15 +43,54 @@ const CTARounded = () => {
       ...prev,
       [name]: value
     }));
+    // Clear any previous status message when user starts typing
+    if (submitStatus.message) {
+      setSubmitStatus({ type: '', message: '' });
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You can add API call or other logic here
-    alert('Thank you! We\'ll be in touch soon to schedule your walkthrough.');
-    setFormData({ name: '', email: '', industry: '' });
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    const requestBody = {
+      data: {
+        name: formData.name,
+        email: formData.email,
+        industry: formData.industry
+      },
+      requesterEmail: formData.email,
+      requesterName: formData.name
+    };
+
+    try {
+      const response = await fetch(getFormApiUrl(), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody)
+      });
+
+      if (!response.ok) {
+        throw new Error(`Submission failed: ${response.status}`);
+      }
+
+      setSubmitStatus({ 
+        type: 'success', 
+        message: "Thank you! We'll be in touch soon to schedule your walkthrough." 
+      });
+      setFormData({ name: '', email: '', industry: '' });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'Something went wrong. Please try again or contact us directly.' 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleSmoothScroll = (e, targetId) => {
@@ -104,9 +152,18 @@ const CTARounded = () => {
                 </datalist>
               </div>
             </div>
-            <button type="submit" className="primary-btn form-submit">
-            Book a Demo
+            <button 
+              type="submit" 
+              className="primary-btn form-submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Submitting...' : 'Book a Demo'}
             </button>
+            {submitStatus.message && (
+              <p className={`form-status ${submitStatus.type}`}>
+                {submitStatus.message}
+              </p>
+            )}
           </form>
         </RiseUpAnimation>
         
